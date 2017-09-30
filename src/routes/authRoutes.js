@@ -24,9 +24,9 @@ var router = function () {
 
         });
     authRouter.route('/signIn')
-        .post(passport.authenticate('local', {failureRedirect: '/'}, function (req, res) {
+        .post(passport.authenticate('local', {failureRedirect: '/'}), function (req, res) {
             res.redirect('/auth/profile');
-        }));
+        });
     authRouter.route('/profile')
         .get(function (req, res) {
             res.json(req.user);
